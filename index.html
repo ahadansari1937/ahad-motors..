@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Metadata -->
+  <title>AHAD MOTORS - Buy & Sell Cars in Pakistan | Drive Your Dream</title>
+  <meta name="description" content="AHAD MOTORS is a modern Pakistani car marketplace where you can buy and sell cars, explore vehicle specifications and discover cars across Pakistan.">
+  <meta name="keywords" content="buy cars Pakistan, sell cars Pakistan, used cars Pakistan, cars for sale Pakistan, Lahore cars, Karachi cars, Islamabad cars, Toyota cars Pakistan, Honda cars Pakistan, AHAD MOTORS">
+  <meta name="author" content="AHAD MOTORS">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph Meta -->
+  <meta property="og:title" content="AHAD MOTORS - Pakistan's Premier Car Marketplace">
+  <meta property="og:description" content="Find Your Perfect Car. Buy, sell, and discover verified vehicles across Pakistan with AHAD MOTORS.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts & FontAwesome 6 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       Top Information Bar
+       ========================================================================== -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-left">
+        <div class="top-bar-item">
+          <i class="fa-solid fa-phone-volume"></i>
+          <span>Helpdesk: <strong>+92 (300) 123-4567</strong></span>
+        </div>
+        <div class="top-bar-item">
+          <i class="fa-solid fa-envelope"></i>
+          <span>support@ahadmotors.pk</span>
+        </div>
+        <div class="top-bar-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <span>Lahore • Karachi • Islamabad</span>
+        </div>
+      </div>
+      <div class="top-bar-right">
+        <a href="#sell-section" class="top-bar-link"><i class="fa-solid fa-car"></i> Post Ad for Free</a>
+        <a href="#loan-calc" class="top-bar-link"><i class="fa-solid fa-calculator"></i> Car Financing</a>
+        <a href="javascript:void(0)" onclick="openAuthModal('login')" class="top-bar-link"><i class="fa-regular fa-user"></i> Portal Login</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       Sticky Main Navigation Header
+       ========================================================================== -->
+  <header class="main-header">
+    <div class="container nav-container">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo" title="AHAD MOTORS Home">
+        <div class="logo-badge">
+          <i class="fa-solid fa-gauge-high"></i>
+        </div>
+        <div class="logo-text">
+          <div class="logo-title">AHAD <span>MOTORS</span></div>
+          <div class="logo-tagline">Drive Your Dream</div>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-menu">
+        <a href="#hero" class="nav-link active">Home</a>
+        <a href="#buy-cars" class="nav-link">Buy Cars</a>
+        <a href="#popular-brands" class="nav-link">Popular Brands</a>
+        <a href="#popular-cities" class="nav-link">Cities</a>
+        <a href="#sell-section" class="nav-link">Sell Car</a>
+        <a href="#reviews" class="nav-link">Car Reviews</a>
+        <a href="#about-us" class="nav-link">About Us</a>
+      </nav>
+
+      <!-- Nav Actions & Call To Actions -->
+      <div class="nav-actions">
+        <!-- Live Search Bar in Nav -->
+        <div class="input-with-icon" style="max-width: 200px; display: none;" id="navSearchWrap">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="navSearchInput" placeholder="Quick search...">
+        </div>
+
+        <!-- Favorites Counter Icon -->
+        <button class="nav-icon-btn" onclick="showFavoritesOnly()" title="View Saved Cars" aria-label="Favorites">
+          <i class="fa-regular fa-heart"></i>
+          <span class="fav-counter">0</span>
+        </button>
+
+        <!-- Auth Section -->
+        <div id="navAuthContainer">
+          <button class="btn btn-sm btn-outline" onclick="openAuthModal('login')">
+            <i class="fa-regular fa-user"></i> Login
+          </button>
+        </div>
+
+        <!-- Post Your Ad Primary CTA -->
+        <button class="btn btn-primary" onclick="openSellModal()">
+          <i class="fa-solid fa-plus-circle"></i> Post Your Ad
+        </button>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open Mobile Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="nav-backdrop" id="navBackdrop"></div>
+  <aside class="mobile-nav-drawer" id="mobileDrawer">
+    <div class="mobile-nav-header">
+      <div class="logo-title">AHAD <span>MOTORS</span></div>
+      <button class="modal-close-btn" id="closeDrawerBtn"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="#hero" class="nav-link">Home</a>
+      <a href="#buy-cars" class="nav-link">Buy Cars</a>
+      <a href="#popular-brands" class="nav-link">Popular Brands</a>
+      <a href="#popular-cities" class="nav-link">Popular Cities</a>
+      <a href="#sell-section" class="nav-link">Sell Your Car</a>
+      <a href="#loan-calc" class="nav-link">Car Loan Calculator</a>
+      <a href="#reviews" class="nav-link">Reviews</a>
+      <a href="#about-us" class="nav-link">About AHAD MOTORS</a>
+    </div>
+    <div style="margin-top: auto; display: flex; flex-direction: column; gap: 0.75rem;">
+      <button class="btn btn-primary btn-lg" onclick="openSellModal(); document.getElementById('closeDrawerBtn').click();">
+        <i class="fa-solid fa-plus-circle"></i> Post Your Ad
+      </button>
+      <button class="btn btn-outline" onclick="openAuthModal('login'); document.getElementById('closeDrawerBtn').click();">
+        <i class="fa-regular fa-user"></i> Member Login
+      </button>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       Hero Section with Large Marketplace Search
+       ========================================================================== -->
+  <section class="hero-section" id="hero">
+    <div class="hero-overlay-grid"></div>
+    <div class="hero-pattern"></div>
+    <div class="container hero-inner">
+      
+      <div class="hero-badge">
+        <i class="fa-solid fa-shield-halved"></i> #1 Trusted Pakistani Automotive Marketplace
+      </div>
+
+      <h1 class="hero-title">
+        Find Your <span class="highlight">Perfect Car</span> In Pakistan
+      </h1>
+      
+      <p class="hero-subtitle">
+        Buy, sell and discover cars across Pakistan with AHAD MOTORS. Explore verified vehicles, genuine owner listings, and real-time market prices.
+      </p>
+
+      <!-- Hero Interactive Search Box -->
+      <div class="hero-search-box">
+        <div class="search-tabs">
+          <button class="search-tab active"><i class="fa-solid fa-car-side"></i> All Vehicles</button>
+          <button class="search-tab" onclick="filterByBrand('Toyota')"><i class="fa-solid fa-star"></i> Toyota</button>
+          <button class="search-tab" onclick="filterByBrand('Honda')"><i class="fa-solid fa-star"></i> Honda</button>
+          <button class="search-tab" onclick="filterByBrand('Suzuki')"><i class="fa-solid fa-star"></i> Suzuki</button>
+        </div>
+
+        <form class="search-inputs-grid" onsubmit="handleHeroSearch(event)">
+          
+          <div class="input-field-group">
+            <label>Make / Brand</label>
+            <div class="input-with-icon">
+              <i class="fa-solid fa-car"></i>
+              <select id="heroMake">
+                <option value="">All Car Makes</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="input-field-group">
+            <label>City</label>
+            <div class="input-with-icon">
+              <i class="fa-solid fa-location-dot"></i>
+              <select id="heroCity">
+                <option value="">All Pakistan Cities</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="input-field-group">
+            <label>Price Range</label>
+            <div class="input-with-icon">
+              <i class="fa-solid fa-tag"></i>
+              <select id="heroPriceRange">
+                <option value="">Any Price</option>
+                <option value="0-3000000">Under 30 Lacs</option>
+                <option value="3000000-6000000">30 Lacs - 60 Lacs</option>
+                <option value="6000000-10000000">60 Lacs - 1 Crore</option>
+                <option value="10000000-30000000">Above 1 Crore</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 0.5rem; margin-top: 1.3rem;">
+            <button type="submit" class="btn btn-primary" style="height: 48px; padding: 0 1.5rem;">
+              <i class="fa-solid fa-magnifying-glass"></i> Search Cars
+            </button>
+            <button type="button" class="btn btn-secondary" style="height: 48px;" onclick="openSellModal()">
+              Sell Your Car
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- Marketplace Metrics -->
+      <div class="hero-stats">
+        <div class="hero-stat-item">
+          <span class="hero-stat-num">18,500+</span>
+          <span class="hero-stat-label">Verified Cars</span>
+        </div>
+        <div class="hero-stat-item">
+          <span class="hero-stat-num">98%</span>
+          <span class="hero-stat-label">Satisfied Sellers</span>
+        </div>
+        <div class="hero-stat-item">
+          <span class="hero-stat-num">150+</span>
+          <span class="hero-stat-label">Cities Covered</span>
+        </div>
+        <div class="hero-stat-item">
+          <span class="hero-stat-num">Free</span>
+          <span class="hero-stat-label">Ad Posting</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Popular Brands Section
+       ========================================================================== -->
+  <section class="section-padding" id="popular-brands">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"><i class="fa-solid fa-award"></i> Top Manufacturers</span>
+        <h2 class="section-title">Popular Car Brands</h2>
+        <p class="section-subtitle">Click on any brand below to quickly explore available listings across Pakistan.</p>
+      </div>
+      <div class="brands-grid" id="brandsGrid">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Featured Cars Showcase
+       ========================================================================== -->
+  <section class="section-padding bg-subtle" id="featured-cars">
+    <div class="container">
+      <div class="featured-header-row">
+        <div>
+          <span class="section-tag"><i class="fa-solid fa-gem"></i> Handpicked Excellence</span>
+          <h2 class="section-title" style="margin-bottom: 0;">Featured Vehicles</h2>
+        </div>
+        <a href="#buy-cars" class="btn btn-outline" style="background:#fff;">
+          View All Vehicles <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="featured-grid" id="featuredGrid">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Main Marketplace: Buy Cars with Advanced Filters
+       ========================================================================== -->
+  <section class="section-padding" id="buy-cars">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="section-tag"><i class="fa-solid fa-car"></i> Marketplace Directory</span>
+        <h2 class="section-title">Cars For Sale In Pakistan</h2>
+        <p class="section-subtitle">Explore authentic verified used & brand new cars with condition transparency.</p>
+      </div>
+
+      <div class="marketplace-layout">
+        
+        <!-- Filter Sidebar -->
+        <aside class="filter-sidebar">
+          <div class="filter-header">
+            <h3><i class="fa-solid fa-sliders"></i> Filter Cars</h3>
+            <button class="reset-filter-btn" onclick="resetAllFilters()">Reset All</button>
+          </div>
+
+          <form id="filterForm" onsubmit="event.preventDefault(); applyFiltersAndRender();">
+            
+            <div class="filter-group">
+              <label>Search Keyword</label>
+              <input type="text" id="filterKeyword" class="filter-input" placeholder="e.g. Grande, Turbo, AWD...">
+            </div>
+
+            <div class="filter-group">
+              <label>Make / Brand</label>
+              <select id="filterBrand" class="filter-select">
+                <option value="">All Brands</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label>City Location</label>
+              <select id="filterCity" class="filter-select">
+                <option value="">All Cities</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label>Price Range (PKR)</label>
+              <div class="price-range-inputs">
+                <input type="number" id="filterMinPrice" class="filter-input" placeholder="Min PKR">
+                <input type="number" id="filterMaxPrice" class="filter-input" placeholder="Max PKR">
+              </div>
+            </div>
+
+            <div class="filter-group">
+              <label>Minimum Model Year</label>
+              <select id="filterMinYear" class="filter-select">
+                <option value="">Any Year</option>
+                <option value="2023">2023 & Above</option>
+                <option value="2022">2022 & Above</option>
+                <option value="2021">2021 & Above</option>
+                <option value="2020">2020 & Above</option>
+                <option value="2018">2018 & Above</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label>Fuel Type</label>
+              <select id="filterFuel" class="filter-select">
+                <option value="">All Fuel Types</option>
+                <option value="Petrol">Petrol</option>
+                <option value="Diesel">Diesel</option>
+                <option value="Hybrid">Hybrid</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label>Transmission</label>
+              <select id="filterTransmission" class="filter-select">
+                <option value="">All Transmissions</option>
+                <option value="Automatic">Automatic</option>
+                <option value="Manual">Manual</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label>Vehicle Condition</label>
+              <select id="filterCondition" class="filter-select">
+                <option value="">All Conditions</option>
+                <option value="Excellent">Excellent</option>
+                <option value="Good">Good</option>
+                <option value="Average">Average</option>
+              </select>
+            </div>
+
+            <div class="filter-group" style="display: flex; align-items: center; gap: 0.5rem; margin-top: 1rem;">
+              <input type="checkbox" id="filterFavoritesOnly" style="width: 18px; height: 18px; accent-color: var(--primary);">
+              <label for="filterFavoritesOnly" style="margin-bottom: 0; cursor: pointer; font-size: 0.85rem;">Show Saved Favorites Only</label>
+            </div>
+
+            <div style="display: flex; gap: 0.5rem; margin-top: 1.5rem;">
+              <button type="submit" class="btn btn-primary" style="width: 100%;">
+                Apply Filters
+              </button>
+            </div>
+
+          </form>
+        </aside>
+
+        <!-- Marketplace Results Content -->
+        <main class="marketplace-content">
+          
+          <div class="results-header-bar">
+            <div class="results-count" id="resultsCountDisplay">
+              Showing <span>18</span> Cars Available
+            </div>
+            
+            <div class="results-sorting">
+              <label for="sortSelector">Sort By:</label>
+              <select id="sortSelector" class="sort-select" onchange="applyFiltersAndRender()">
+                <option value="default">Default Sorting</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="year-desc">Newest Model Year</option>
+                <option value="mileage-asc">Lowest Mileage</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Dynamic Car Listings Grid -->
+          <div class="featured-grid" id="marketplaceGrid">
+            <!-- Populated via JavaScript -->
+          </div>
+
+        </main>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Latest Car Ads Section
+       ========================================================================== -->
+  <section class="section-padding bg-subtle" id="latest-ads">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"><i class="fa-solid fa-clock-rotate-left"></i> Fresh Inventory</span>
+        <h2 class="section-title">Latest Car Ads</h2>
+        <p class="section-subtitle">Freshly posted cars by sellers across Pakistan within the last few hours.</p>
+      </div>
+
+      <div class="featured-grid" id="latestAdsGrid">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Popular Cities Section
+       ========================================================================== -->
+  <section class="section-padding" id="popular-cities">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"><i class="fa-solid fa-map-location-dot"></i> Browse By Region</span>
+        <h2 class="section-title">Popular Cities Across Pakistan</h2>
+        <p class="section-subtitle">Filter thousands of verified cars in major metropolitan areas.</p>
+      </div>
+
+      <div class="cities-grid" id="citiesGrid">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Sell Your Car Banner Section
+       ========================================================================== -->
+  <section class="section-padding" id="sell-section" style="padding-top: 1rem;">
+    <div class="container">
+      <div class="sell-banner-box">
+        <div class="sell-banner-grid">
+          
+          <div class="sell-banner-content">
+            <span class="badge badge-featured" style="margin-bottom: 1rem;"><i class="fa-solid fa-bolt"></i> 100% Free Ad Posting</span>
+            <h2>Sell Your Car With <span style="color: #ff5252;">AHAD MOTORS</span></h2>
+            <p>Reach over 500,000 genuine car buyers across Pakistan. Get the best price for your vehicle with verified inquiries and direct buyer chat.</p>
+            
+            <div class="sell-features-list">
+              <div class="sell-feature-item"><i class="fa-solid fa-circle-check"></i> Free Unlimited Ad Uploads</div>
+              <div class="sell-feature-item"><i class="fa-solid fa-circle-check"></i> Direct Buyer WhatsApp / Chat</div>
+              <div class="sell-feature-item"><i class="fa-solid fa-circle-check"></i> Transparent Condition Matrix</div>
+              <div class="sell-feature-item"><i class="fa-solid fa-circle-check"></i> Zero Commission on Direct Deals</div>
+            </div>
+
+            <button class="btn btn-primary btn-lg" onclick="openSellModal()">
+              <i class="fa-solid fa-circle-plus"></i> Post Free Ad Now
+            </button>
+          </div>
+
+          <div style="text-align: center;">
+            <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=800&q=80" alt="Sell your car with AHAD MOTORS" style="border-radius: var(--radius-lg); box-shadow: 0 20px 40px rgba(0,0,0,0.4); max-height: 320px; width: 100%; object-fit: cover;">
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Auto Loan / EMI Calculator Tool
+       ========================================================================== -->
+  <section class="section-padding bg-subtle" id="loan-calc">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"><i class="fa-solid fa-calculator"></i> Smart Finance</span>
+        <h2 class="section-title">Car Loan & Financing Calculator</h2>
+        <p class="section-subtitle">Calculate your estimated monthly installment plan easily.</p>
+      </div>
+
+      <div class="calc-card">
+        
+        <div class="calc-form">
+          <div class="calc-form-group">
+            <label><span>Car Price (PKR):</span> <strong id="calcPriceLabel">PKR 5,000,000</strong></label>
+            <input type="range" id="loanCarPrice" class="calc-range-input" min="1000000" max="30000000" step="100000" value="5000000">
+          </div>
+
+          <div class="calc-form-group">
+            <label><span>Down Payment (%):</span> <strong id="calcDownLabel">20% (PKR 1,000,000)</strong></label>
+            <input type="range" id="loanDownPayment" class="calc-range-input" min="10" max="70" step="5" value="20">
+          </div>
+
+          <div class="calc-form-group">
+            <label><span>Loan Tenure:</span> <strong id="calcTenureLabel">3 Years (36 Months)</strong></label>
+            <input type="range" id="loanTenure" class="calc-range-input" min="1" max="7" step="1" value="3">
+          </div>
+
+          <div class="calc-form-group">
+            <label><span>Interest Rate (% KIBOR):</span> <strong id="calcRateLabel">16% KIBOR</strong></label>
+            <input type="range" id="loanInterestRate" class="calc-range-input" min="8" max="24" step="0.5" value="16">
+          </div>
+        </div>
+
+        <div class="calc-result-box">
+          <span style="text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; color: #94a3b8;">Estimated Monthly Installment</span>
+          <div class="calc-monthly-amount" id="calcMonthlyEMI">PKR 140,650</div>
+          
+          <div class="calc-breakdown">
+            <div>
+              <p style="font-size: 0.75rem; color: #94a3b8;">Financed Amount</p>
+              <strong id="calcFinancedAmount" style="color: #fff;">PKR 4,000,000</strong>
+            </div>
+            <div>
+              <p style="font-size: 0.75rem; color: #94a3b8;">Total Interest</p>
+              <strong id="calcTotalInterest" style="color: #fff;">PKR 1,063,400</strong>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Customer Reviews & Testimonials
+       ========================================================================== -->
+  <section class="section-padding" id="reviews">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"><i class="fa-solid fa-star"></i> Buyer Feedback</span>
+        <h2 class="section-title">What Pakistani Drivers Say</h2>
+        <p class="section-subtitle">Real experiences from car enthusiasts, buyers, and verified sellers on AHAD MOTORS.</p>
+      </div>
+
+      <div class="reviews-grid">
+        
+        <div class="review-card">
+          <div>
+            <div class="review-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-text">"Sold my Honda Civic within 48 hours of posting on AHAD MOTORS. The direct WhatsApp chat feature saved so much time, and I got serious offers immediately!"</p>
+          </div>
+          <div class="review-user">
+            <div class="user-avatar">MK</div>
+            <div class="user-info">
+              <h5>Muhammad Kashif</h5>
+              <span>Seller from Lahore • Honda Civic</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div>
+            <div class="review-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-text">"The detailed condition matrix showing paint touch-ups, owner count, and accident history gave me the confidence to buy my Toyota Corolla from Islamabad without surprises."</p>
+          </div>
+          <div class="review-user">
+            <div class="user-avatar">SR</div>
+            <div class="user-info">
+              <h5>Saad Rehman</h5>
+              <span>Buyer from Islamabad • Toyota Corolla</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div>
+            <div class="review-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-text">"The website is super fast, responsive on mobile, and free to post ads. It is by far the cleanest Pakistani automotive portal I've used for my family SUV upgrade."</p>
+          </div>
+          <div class="review-user">
+            <div class="user-avatar">AB</div>
+            <div class="user-info">
+              <h5>Asad Bilal</h5>
+              <span>Buyer from Karachi • KIA Sportage</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       About AHAD MOTORS & Why Choose Us
+       ========================================================================== -->
+  <section class="section-padding bg-subtle" id="about-us">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="section-tag"><i class="fa-solid fa-car-tunnel"></i> About Our Platform</span>
+        <h2 class="section-title">About AHAD MOTORS</h2>
+        <p class="section-subtitle">
+          AHAD MOTORS is a modern online automotive marketplace designed to make buying and selling cars easier. Explore vehicles, compare specifications, discover listings and connect with sellers.
+        </p>
+      </div>
+
+      <div class="why-us-grid">
+        
+        <div class="why-card">
+          <div class="why-icon-box"><i class="fa-solid fa-shield-halved"></i></div>
+          <h4>Verified Vehicle Specs</h4>
+          <p>Every vehicle listing contains detailed engine, mileage, transmission, ownership, and accident history for complete buying confidence.</p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon-box"><i class="fa-solid fa-tag"></i></div>
+          <h4>100% Free Ad Posting</h4>
+          <p>Post your car advertisement with high-resolution photos in under 2 minutes at zero cost and zero hidden commission.</p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon-box"><i class="fa-solid fa-comments"></i></div>
+          <h4>Instant Seller Chat</h4>
+          <p>Connect instantly with car owners and buyers through our integrated live chat simulator and direct WhatsApp links.</p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon-box"><i class="fa-solid fa-map-location"></i></div>
+          <h4>Nationwide Reach</h4>
+          <p>From Karachi to Khyber, browse thousands of authentic cars in Lahore, Islamabad, Rawalpindi, Multan, Faisalabad, and beyond.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Professional Footer
+       ========================================================================== -->
+  <footer class="main-footer">
+    <div class="container">
+      
+      <div class="footer-top">
+        
+        <!-- Brand Summary -->
+        <div class="footer-brand">
+          <div class="brand-logo" style="margin-bottom: 0.5rem;">
+            <div class="logo-badge"><i class="fa-solid fa-gauge-high"></i></div>
+            <div class="logo-text">
+              <div class="logo-title">AHAD <span>MOTORS</span></div>
+              <div class="logo-tagline" style="color: #94a3b8;">Drive Your Dream</div>
+            </div>
+          </div>
+          <p>AHAD MOTORS is your trusted destination to buy, sell, and discover premium cars across Pakistan with complete transparency and verified details.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-link" title="Facebook" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-link" title="Instagram" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-link" title="YouTube" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="social-link" title="LinkedIn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="footer-heading">Quick Links</h4>
+          <div class="footer-links">
+            <a href="#hero">Home</a>
+            <a href="#buy-cars">Buy Cars</a>
+            <a href="#sell-section">Sell Your Car</a>
+            <a href="#loan-calc">Car Loan Calculator</a>
+            <a href="#reviews">Car Reviews</a>
+            <a href="#about-us">About Us</a>
+          </div>
+        </div>
+
+        <!-- Popular Cities -->
+        <div>
+          <h4 class="footer-heading">Popular Cities</h4>
+          <div class="footer-links">
+            <a href="javascript:void(0)" onclick="filterByCity('Lahore')">Lahore Cars</a>
+            <a href="javascript:void(0)" onclick="filterByCity('Karachi')">Karachi Cars</a>
+            <a href="javascript:void(0)" onclick="filterByCity('Islamabad')">Islamabad Cars</a>
+            <a href="javascript:void(0)" onclick="filterByCity('Rawalpindi')">Rawalpindi Cars</a>
+            <a href="javascript:void(0)" onclick="filterByCity('Faisalabad')">Faisalabad Cars</a>
+            <a href="javascript:void(0)" onclick="filterByCity('Multan')">Multan Cars</a>
+          </div>
+        </div>
+
+        <!-- Newsletter & Contact -->
+        <div>
+          <h4 class="footer-heading">Subscribe to Alerts</h4>
+          <p style="font-size: 0.85rem; margin-bottom: 0.75rem;">Get real-time price drops and new car listing alerts delivered to your inbox.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); showToast('Thank you for subscribing to AHAD MOTORS updates!'); this.reset();">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+          </form>
+          <div style="margin-top: 1rem; font-size: 0.825rem; color: #94a3b8;">
+            <i class="fa-solid fa-clock"></i> Mon - Sat: 9:00 AM - 9:00 PM PKT
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 AHAD MOTORS. All Rights Reserved.</div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Safety Tips</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       Modals Container
+       ========================================================================== -->
+
+  <!-- 1. Car Detail Modal -->
+  <div class="modal-overlay" id="carDetailModal">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeModals()"><i class="fa-solid fa-xmark"></i></button>
+      <div id="carDetailModalBody">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Chat With Seller Modal -->
+  <div class="modal-overlay" id="chatModal">
+    <div class="modal-card chat-modal-card">
+      <div class="chat-modal-header">
+        <div>
+          <h3 id="chatCarTitle" style="font-size: 1.1rem; font-weight: 800;">Vehicle Inquiry</h3>
+          <span id="chatSellerName" style="font-size: 0.8rem; color: #94a3b8;">Seller</span>
+        </div>
+        <button class="modal-close-btn" style="position: static; color: #fff; background: rgba(255,255,255,0.15);" onclick="closeModals()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <div class="chat-messages-body" id="chatMessagesBody">
+        <!-- Messages injected here -->
+      </div>
+
+      <!-- Quick Inquiry Chips -->
+      <div class="chat-quick-replies">
+        <button class="quick-reply-btn" onclick="sendChatMessage('Hello, I am interested in this car.')">"I am interested"</button>
+        <button class="quick-reply-btn" onclick="sendChatMessage('Is the car still available?')">"Is it available?"</button>
+        <button class="quick-reply-btn" onclick="sendChatMessage('Can I inspect the car with my mechanic?')">"Can I inspect?"</button>
+        <button class="quick-reply-btn" onclick="sendChatMessage('What is your final price on spot?')">"Final price?"</button>
+      </div>
+
+      <div class="chat-input-bar">
+        <input type="text" id="chatInput" placeholder="Type your message to seller...">
+        <button class="btn btn-primary btn-sm" onclick="sendChatMessage()"><i class="fa-solid fa-paper-plane"></i> Send</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Sell Your Car Form Modal -->
+  <div class="modal-overlay" id="sellCarModal">
+    <div class="modal-card" style="max-width: 680px; padding: 2.25rem;">
+      <button class="modal-close-btn" onclick="closeModals()"><i class="fa-solid fa-xmark"></i></button>
+      
+      <div style="margin-bottom: 1.5rem;">
+        <span class="section-tag"><i class="fa-solid fa-plus-circle"></i> Free Ad Submission</span>
+        <h2 style="font-size: 1.6rem; font-weight: 800; color: var(--secondary);">Sell Your Car With AHAD MOTORS</h2>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Fill in the vehicle specifications below to publish your advertisement.</p>
+      </div>
+
+      <form id="sellCarForm" onsubmit="handleSellCarSubmit(event)">
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+          <div>
+            <label style="font-size: 0.8rem; font-weight: 700; color: var(--secondary);">Seller Full Name *</label>
+            <input type="text" id="sellName" class="filter-input" placeholder="e.g. Ahad Sheikh" required>
+          </div>
+          <div>
+            <label style="font-size: 0.8rem; font-weight: 700; color: var(--secondary);">Phone Number (WhatsApp) *</label>
+            <input type="tel" id="sellPhone" class="filter-input" placeholder="0300-1234567" required>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+          <div>
+            <label style="font-size: 0.8rem; font-weight: 700; color: var(--secondary);">Car Make *</label>
+            <input type="text" id="sellMake" class="filter-input" placeholder="e.g. Toyota" required>
+          </div>
+          <div>
+            <label style="font-size: 0.8rem; font-weight: 700; color: var(--secondary);">Car Model *</label>
+            <input type="text" id="sellModel" class="filter-input" placeholder="e.g. Corolla Altis" required>
+          </div>
+          <div>
+            <label style="font-size: 0.8rem; font-weight: 700; color: var(--secondary);">Model Year *</label>
+            <input type="number" id="sellYear" class="filter-input" min="1990" max="2026" placeholder="2022" required>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+          <div>
+            <label style="font-size: 0.8rem; font-weight: 700; color: var(--secondary);">Price (PKR) *</label>
+            <input type="number" id="sellPrice" class="filter-input" placeholder="6500000" required>
+          </div>
+          <div>
+            <label style="font-size: 0.8rem; font-weight: 700; color: var(--secondary);">Mileage (KM) *</label>
+            <input type="number" id="sellMileage" class="filter-input" placeholder="45000" required>
+          </div>
+          <div>
+            <label style="font-size: 0.8rem; font-weight: 700; color: var(--secondary);">Engine Displacement</label>
+            <input type="text" id="sellEngine" class="filter-input" placeholder="1800cc">
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+          <div>
+            <label style="font-size: 0.8rem; font-weight: 700; color: var(--secondary);">City Location *</label>
+            <select id="sellCity" class="filter-select" required>
+              <option value="Lahore">Lahore</option>
+              <option value="Karachi">Karachi</option>
+              <option value="Islamabad">Islamabad</option>
+              <option value="Rawalpindi">Rawalpindi</option>
+              <option value="Faisalabad">Faisalabad</option>
+              <option value="Multan">Multan</option>
+              <option value="Peshawar">Peshawar</option>
+              <option value="Gujranwala">Gujranwala</option>
+            </select>
+          </div>
+          <div>
+            <label style="font-size: 0.8rem; font-weight: 700; color: var(--secondary);">Fuel Type</label>
+            <select id="sellFuel" class="filter-select">
+              <option value="Petrol">Petrol</option>
+              <option value="Diesel">Diesel</option>
+              <option value="Hybrid">Hybrid</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+          <div>
+            <label style="font-size: 0.8rem; font-weight: 700; color: var(--secondary);">Transmission</label>
+            <select id="sellTransmission" class="filter-select">
+              <option value="Automatic">Automatic</option>
+              <option value="Manual">Manual</option>
+            </select>
+          </div>
+          <div>
+            <label style="font-size: 0.8rem; font-weight: 700; color: var(--secondary);">Condition</label>
+            <select id="sellCondition" class="filter-select">
+              <option value="Excellent">Excellent</option>
+              <option value="Good">Good</option>
+              <option value="Average">Average</option>
+            </select>
+          </div>
+          <div>
+            <label style="font-size: 0.8rem; font-weight: 700; color: var(--secondary);">Ownership</label>
+            <select id="sellOwners" class="filter-select">
+              <option value="1st Owner">1st Owner</option>
+              <option value="2nd Owner">2nd Owner</option>
+              <option value="3rd Owner">3rd Owner</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
+          <div>
+            <label style="font-size: 0.8rem; font-weight: 700; color: var(--secondary);">Accident History</label>
+            <select id="sellAccident" class="filter-select">
+              <option value="No Accident">No Accident</option>
+              <option value="Minor Accident">Minor Accident</option>
+              <option value="Major Accident">Major Accident</option>
+            </select>
+          </div>
+          <div>
+            <label style="font-size: 0.8rem; font-weight: 700; color: var(--secondary);">Paint / Touch-ups</label>
+            <select id="sellTouchups" class="filter-select">
+              <option value="Original Paint">Original Paint</option>
+              <option value="Minor Touch-ups">Minor Touch-ups</option>
+              <option value="Multiple Touch-ups">Multiple Touch-ups</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+          <i class="fa-solid fa-cloud-arrow-up"></i> Post Your Ad
+        </button>
+
+      </form>
+    </div>
+  </div>
+
+  <!-- 4. Login & Signup Modal -->
+  <div class="modal-overlay" id="authModal">
+    <div class="modal-card auth-modal-card">
+      <button class="modal-close-btn" onclick="closeModals()"><i class="fa-solid fa-xmark"></i></button>
+
+      <div class="auth-tabs">
+        <button class="auth-tab-btn active" id="loginTabBtn" onclick="toggleAuthTab('login')">Sign In</button>
+        <button class="auth-tab-btn" id="signupTabBtn" onclick="toggleAuthTab('signup')">Create Account</button>
+      </div>
+
+      <!-- Login Form -->
+      <form id="loginFormTab" class="auth-form" onsubmit="handleLoginSubmit(event)">
+        <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--secondary);">Welcome to AHAD MOTORS</h3>
+        <div>
+          <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted);">Email Address</label>
+          <input type="email" id="loginEmail" class="filter-input" placeholder="name@example.com" required>
+        </div>
+        <div>
+          <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted);">Password</label>
+          <input type="password" id="loginPassword" class="filter-input" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="margin-top: 0.5rem;">
+          <i class="fa-solid fa-right-to-bracket"></i> Login
+        </button>
+      </form>
+
+      <!-- Signup Form -->
+      <form id="signupFormTab" class="auth-form" style="display: none;" onsubmit="handleSignupSubmit(event)">
+        <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--secondary);">Join AHAD MOTORS</h3>
+        <div>
+          <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted);">Full Name</label>
+          <input type="text" id="signupName" class="filter-input" placeholder="Ahad Sheikh" required>
+        </div>
+        <div>
+          <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted);">Email Address</label>
+          <input type="email" id="signupEmail" class="filter-input" placeholder="name@example.com" required>
+        </div>
+        <div>
+          <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted);">Phone Number</label>
+          <input type="tel" id="signupPhone" class="filter-input" placeholder="0300-1234567" required>
+        </div>
+        <div>
+          <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted);">Password</label>
+          <input type="password" id="signupPassword" class="filter-input" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="margin-top: 0.5rem;">
+          <i class="fa-solid fa-user-plus"></i> Create Account
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- Floating WhatsApp Action Button -->
+  <a href="https://wa.me/923001234567?text=Hi%20AHAD%20MOTORS,%20I%20have%20an%20inquiry%20regarding%20car%20listings." target="_blank" class="floating-whatsapp-btn" title="Contact AHAD MOTORS on WhatsApp" aria-label="WhatsApp Support">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- JavaScript Engine -->
+  <script src="script.js"></script>
+</body>
+</html>
